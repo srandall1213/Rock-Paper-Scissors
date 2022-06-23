@@ -1,17 +1,19 @@
-alert("Let's play Rock, Paper, Scissors!");
+confirm("Want to play Rock, Paper, Scissors?");
 
 prompt("Please enter R, P, or S to signify your choice of rock, paper, or scissors.");
 
-confirm("Random automated response R, P, or S");
+alert("Opponent: R, P, or S"); //find out how to randomly pick
 
-confirm("You Win!");
+//You win scenario
+alert("You Win!"); //conditional if statement
 
-confirm("Stats:\n Wins: X\n Ties: X\n Losses: X\n");
+alert("Stats:\n Wins: X\n Ties: X\n Losses: X\n");
 
-prompt("Play again?")
+confirm("Play again?") //loop back up to prompt
 
-confirm("You Lose!");
+//You lose scenario
+alert("You Lose!"); //conditional if statement
 
-confirm("Stats:\n Wins: X\n Ties: X\n Losses: X\n");
+alert("Stats:\n Wins: X\n Ties: X\n Losses: X\n");
 
-prompt("Play again?")
+confirm("Play again?") //loop back up to prompt
