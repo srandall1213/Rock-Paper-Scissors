@@ -74,7 +74,7 @@ if (playGame) {
 }
 runGame();
 //WHILE LOOP
-while (prompt(playAgain)) {
+while (prompt(playAgain) == "Y") {
 runGame();
 }
 
