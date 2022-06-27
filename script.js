@@ -6,9 +6,9 @@ var greeting = "Lets play Rock, Paper, Scissors!";
 var instructions = "Please enter R, P, or S to signify your choice of rock paper or scissors.";
 var nextTime= "Ok maybe next time!";
 var invalidResponse = "You didn't enter R, P, or S!";
-var declareTie = "Tie Game! " + ["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore+1];
-var declareCompWins = "Computer Wins! " + ["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore];
-var declareYouWin = "You win! " + ["WINS: " + playerScore+1, " LOSSES: " + compScore, " TIES: " + tieScore];
+var tieGame = "Tie Game! " + ["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore+1];
+var compWins = "Computer Wins! " + ["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore];
+var youWin = "You win! " + ["WINS: " + playerScore+1, " LOSSES: " + compScore, " TIES: " + tieScore];
 var compResponse = ["R", "P", "S"];
 var pickCompResponse = compResponse[Math.floor(Math.random()*compResponse.length)];
 var playAgain = "Do you want to play again Y or N?"
@@ -30,15 +30,15 @@ if (playGame) {
             //WHO WINS OR LOSES LOGIC
             var result = function() { 
                 if (playerOne === pickCompResponse) {
-                    alert(declareTie);
+                    alert(tieGame);
                 } else if (playerOne === "R" && pickCompResponse === "P") { 
-                    alert(declareCompWins); 
+                    alert(compWins); 
                 } else if (playerOne === "P" && pickCompResponse === "S") {
-                    alert(declareCompWins);
+                    alert(compWins);
                 } else if (playerOne === "S" && pickCompResponse === "R") {
-                    alert(declareCompWins);
+                    alert(compWins);
                 } else {
-                    alert(declareYouWin);  
+                    alert(youWin);  
                 }
             }
             result();
