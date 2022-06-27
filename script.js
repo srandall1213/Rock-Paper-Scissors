@@ -2,7 +2,7 @@
 var greeting = "Lets play Rock, Paper, Scissors!";
 var instructions = "Please enter R, P, or S to signify your choice of rock paper or scissors.";
 var nextTime= "Ok maybe next time!";
-var invalidResponse = "You didn't enter R P or S!";
+var invalidResponse = "You didn't enter R, P, or S!";
 var declareTie = "Tie Game!";
 var declareCompWins = "Computer Wins!";
 var declareYouWin = "You win!";
