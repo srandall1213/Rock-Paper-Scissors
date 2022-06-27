@@ -1,69 +1,59 @@
-//INSTRUCTIONS
-
-// As a user, I want to play Rock, Paper, Scissors against an automated opponent.
-
-// As a user, I can enter R, P, or S to signify my choice of rock, paper, or scissors.
-
-// As a user, I expect the computer to choose R, P, or S in return.
-
-// As a user, I want the option to play again whether I win or lose.
-
-// **** As a user, I want to see my total wins, ties, and losses after each round.
-
-// Specifications
-// Must use the alert(), confirm(), and prompt() methods to collect user input and display information to the user.
-
-// The computer's selection must be random to ensure a fair game.
-
-//My Notes
-// very helpful video: https://www.youtube.com/watch?v=C2_z34QFVjw
-// StackOverflow helped with Play Again feature. Told me to put the whole game in a function so that I could put it in a while loop at the bottom.
-// Need to figure out the stats alert.
-// Need to figure out how to make the while loop not ask if a user wants to play again after hitting cancel.
-
 //VARIABLES
 var greeting = "Lets play Rock, Paper, Scissors!";
-var instructions = "Please enter R, P, or S to signify your choice of rock, paper, or scissors.";
+var instructions = "Please enter R, P, or S to signify your choice of rock paper or scissors.";
 var nextTime= "Ok maybe next time!";
-var invalidResponse = "You didn't enter R, P, or S!";
-var tieGame = "Tie Game!";
-var compWins = "Computer Wins!";
-var youWin = "You win!";
+var invalidResponse = "You didn't enter R P or S!";
+var declareTie = "Tie Game!";
+var declareCompWins = "Computer Wins!";
+var declareYouWin = "You win!";
 var compResponse = ["R", "P", "S"];
 var pickCompResponse = compResponse[Math.floor(Math.random()*compResponse.length)];
-var playAgain = "Do you want to play again, Y or N?"
+var playAgain = "Do you want to play again Y or N?"
+var playerScore = 0;
+var tieScore = 0;
+var compScore = 0;
 
 //GAME
-function runGame() { //PUT THE WHOLE GAME IN A FUNCTION TO USE IN A WHILE LOOP FOR 'PLAY AGAIN?' AT THE BOTTOM
+function runGame() { //PUT THE WHOLE GAME IN A FUNCTION TO USE IN A WHILE LOOP FOR 'PLAY AGAIN?
 var playGame = confirm(greeting); //LET'S PLAY
 if (playGame) {
-    var playerChoice = prompt(instructions); //ENTER R,P,S
+    var playerChoice = prompt(instructions); //ENTER RPS
     if (playerChoice) {
         var playerOne = playerChoice;
         if (playerOne === "R" || playerOne === "P" || playerOne === "S") {
 
+            //RANDOM COMPUTER RESPONSE
             var pickCompResponse = compResponse[Math.floor(Math.random()*compResponse.length)];
-            alert("Computer's Response:  " + pickCompResponse); //RANDOM COMPUTER RESPONSE
+            alert("Computer's Response:  " + pickCompResponse); 
 
-            var result = function() { //WHO WINS OR LOSES LOGIC
+            //WHO WINS OR LOSES LOGIC
+            var result = function() { 
                 if (playerOne === pickCompResponse) {
-                    alert(tieGame);
-                } else if (playerOne === "R" && pickCompResponse === "P") {
-                    alert(compWins);
+                    alert(declareTie);
+                    alert(["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore+1]);
+                } else if (playerOne === "R" && pickCompResponse === "P") { 
+                    alert(declareCompWins); 
+                    alert(["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore]);
                 } else if (playerOne === "P" && pickCompResponse === "S") {
-                    alert(compWins);
+                    alert(declareCompWins); 
+                    alert(["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore]);
                 } else if (playerOne === "S" && pickCompResponse === "R") {
-                    alert(compWins);
+                    alert(declareCompWins);
+                    alert(["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore]);
                 } else {
-                    alert(youWin);
+                    alert(declareYouWin); 
+                    alert(["WINS: " + playerScore+1, " LOSSES: " + compScore, " TIES: " + tieScore]);   
                 }
             }
-            result(); //TRIGGERS RESULT ALERT
-
-             //**STATS GO HERE**
+            result();
+    
+            // PLAY AGAIN - WHILE LOOP - why does it sometimes ask twice on "N" click??  
+            while (prompt(playAgain) == "Y") { 
+                runGame();
+                }  
 
         } else {
-            alert(invalidResponse); //IF USER ENTERS SOMETHING OTHER THAN R,P,S
+            alert(invalidResponse); //IF USER ENTERS SOMETHING OTHER THAN RPS
         }
     } else {
         alert(nextTime); //IF USER HITS 'CANCEL'
@@ -72,9 +62,5 @@ if (playGame) {
     alert(nextTime); //IF USER HITS 'CANCEL'
 }
 }
-runGame();
-//WHILE LOOP
-while (prompt(playAgain) == "Y") {
-runGame();
-}
+runGame(); //CALLED FUNCTION CODED AT THE TOP ON ORDER TO RUN THE GAME
 
