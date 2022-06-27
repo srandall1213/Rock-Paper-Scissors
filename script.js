@@ -1,17 +1,18 @@
 //VARIABLES
+var playerScore = 0;
+var tieScore = 0;
+var compScore = 0;
 var greeting = "Lets play Rock, Paper, Scissors!";
 var instructions = "Please enter R, P, or S to signify your choice of rock paper or scissors.";
 var nextTime= "Ok maybe next time!";
 var invalidResponse = "You didn't enter R, P, or S!";
-var declareTie = "Tie Game!";
-var declareCompWins = "Computer Wins!";
-var declareYouWin = "You win!";
+var declareTie = "Tie Game! " + ["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore+1];
+var declareCompWins = "Computer Wins!" + ["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore];
+var declareYouWin = "You win!" + ["WINS: " + playerScore+1, " LOSSES: " + compScore, " TIES: " + tieScore];
 var compResponse = ["R", "P", "S"];
 var pickCompResponse = compResponse[Math.floor(Math.random()*compResponse.length)];
 var playAgain = "Do you want to play again Y or N?"
-var playerScore = 0;
-var tieScore = 0;
-var compScore = 0;
+
 
 //GAME
 function runGame() { //PUT THE WHOLE GAME IN A FUNCTION TO USE IN A WHILE LOOP FOR 'PLAY AGAIN?
@@ -30,19 +31,14 @@ if (playGame) {
             var result = function() { 
                 if (playerOne === pickCompResponse) {
                     alert(declareTie);
-                    alert(["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore+1]);
                 } else if (playerOne === "R" && pickCompResponse === "P") { 
                     alert(declareCompWins); 
-                    alert(["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore]);
                 } else if (playerOne === "P" && pickCompResponse === "S") {
-                    alert(declareCompWins); 
-                    alert(["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore]);
+                    alert(declareCompWins);
                 } else if (playerOne === "S" && pickCompResponse === "R") {
                     alert(declareCompWins);
-                    alert(["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore]);
                 } else {
-                    alert(declareYouWin); 
-                    alert(["WINS: " + playerScore+1, " LOSSES: " + compScore, " TIES: " + tieScore]);   
+                    alert(declareYouWin);  
                 }
             }
             result();
