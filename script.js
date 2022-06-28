@@ -6,9 +6,6 @@ var greeting = "Lets play Rock, Paper, Scissors!";
 var instructions = "Please enter R, P, or S to signify your choice of rock paper or scissors.";
 var nextTime= "Ok maybe next time!";
 var invalidResponse = "You didn't enter R, P, or S!";
-var tieGame = "Tie Game! " + ["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore+1];
-var compWins = "Computer Wins! " + ["WINS: " + playerScore, " LOSSES: " + compScore+1, " TIES: " + tieScore];
-var youWin = "You win! " + ["WINS: " + playerScore+1, " LOSSES: " + compScore, " TIES: " + tieScore];
 var compResponse = ["R", "P", "S"];
 var pickCompResponse = compResponse[Math.floor(Math.random()*compResponse.length)];
 var playAgain = "Do you want to play again Y or N?"
@@ -30,14 +27,24 @@ if (playGame) {
             //WHO WINS OR LOSES LOGIC
             var result = function() { 
                 if (playerOne === pickCompResponse) {
+                    tieScore++;
+                    var tieGame = "Tie Game! " + ["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore];
                     alert(tieGame);
-                } else if (playerOne === "R" && pickCompResponse === "P") { 
+                } else if (playerOne === "R" && pickCompResponse === "P") {
+                    compScore++;
+                    var compWins = "Computer Wins! " + ["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore]; 
                     alert(compWins); 
                 } else if (playerOne === "P" && pickCompResponse === "S") {
+                    compScore++;
+                    var compWins = "Computer Wins! " + ["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore];
                     alert(compWins);
                 } else if (playerOne === "S" && pickCompResponse === "R") {
+                    compScore++;
+                    var compWins = "Computer Wins! " + ["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore];
                     alert(compWins);
                 } else {
+                    playerScore++
+                    var youWin = "You win! " + ["WINS: " + playerScore, " LOSSES: " + compScore, " TIES: " + tieScore];
                     alert(youWin);  
                 }
             }

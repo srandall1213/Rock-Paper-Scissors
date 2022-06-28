@@ -5,8 +5,6 @@ MY NOTES:
 
 *StackOverflow helped with Play Again feature. Told me to put the whole game in a function so that I could put it in a while loop.
 
-*Need to figure out how to get the stats alert to keep adding points to the score board with each round.
-
 *Need to figure out how to make the while loop not ask if a user wants to play again after hitting cancel.
 
 
